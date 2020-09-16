@@ -1,4 +1,4 @@
-# meetup
+# client
 
 ## Project setup
 ```

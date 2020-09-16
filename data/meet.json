@@ -1,0 +1,16 @@
+{
+  "meet": [
+    {
+      "id": 1,
+      "title": "Vue Meeting",
+      "desc": "Talking about the newest in Vue",
+      "img": "../assets/vue.png"
+    },
+    {
+      "id": 2,
+      "title": "Node Meeting",
+      "desc": "Talking about the newest in Node",
+      "img": "../assets/vue.png"
+    }
+  ]
+}

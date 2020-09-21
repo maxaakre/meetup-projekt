@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const path = require("path");
+
 const meetRouter = require("./routes/meets");
+
+app.use(express.json());
+app.use(cors());
 
 app.use("/api/meets", meetRouter);
 app.use(express.static(path.join(__dirname, "/public")));

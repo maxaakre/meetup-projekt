@@ -11,8 +11,9 @@ const Meetdata = new DataStore({
 console.log(Meetdata);
 
 router.get("/", async (req, res) => {
-  const meet = fs.createReadStream("data/meet.json");
+  const meet = fs.createReadStream("./data/meet.json");
   meet.pipe(res);
+  console.log(res);
 });
 
 module.exports = router;

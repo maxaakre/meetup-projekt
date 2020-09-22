@@ -11,11 +11,19 @@ export default new Vuex.Store({
   state: {
     meet: [],
     items: [],
+    isOpen: false,
+    cartModalOpen: false,
     meetItems: MeetServices.getMeetItems().then((res) => res.data),
   },
   mutations: {
     displayMeets(state, items) {
       state.items = items;
+    },
+    TOGGLE_SIDE_MENU(state) {
+      state.isOpen = !state.isOpen;
+    },
+    TOGGLE_CART(state) {
+      state.cartModalOpen = !state.cartModalOpen;
     },
   },
   actions: {

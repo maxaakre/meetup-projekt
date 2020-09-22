@@ -1,16 +1,32 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <Navbar />
+      <!-- <cart-modal /> -->
+      <app-side-menu />
     </div>
+
     <router-view />
   </div>
 </template>
 <script>
-export default {};
+import Navbar from "@/components/Navbar.vue";
+// import CartModal from "@/components/CartModal.vue";
+import AppSideMenu from "@/components/AppSideMenu.vue";
+export default {
+  components: {
+    Navbar,
+    // CartModal,
+    AppSideMenu,
+  },
+};
 </script>
 <style lang="scss">
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,8 +36,6 @@ export default {};
 }
 
 #nav {
-  padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

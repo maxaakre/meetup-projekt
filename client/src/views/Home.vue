@@ -1,5 +1,6 @@
 <template>
   <div class="Meetings">
+    <img src="../assets/meet.png" alt="meet" />
     <h1>Meetups this month</h1>
     <Meet />
   </div>
@@ -23,5 +24,9 @@ export default {
   height: 100vh;
   color: black;
   width: 100%;
+}
+span {
+  width: 500px;
+  height: 500px;
 }
 </style>

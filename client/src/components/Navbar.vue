@@ -1,0 +1,107 @@
+<template>
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <router-link to="/" class="brand">Meetup</router-link>|
+      <router-link to="/login">Login</router-link>
+      <router-link to="/signup">Sign up</router-link>
+      <router-link to="/contact">Contact</router-link>
+    </div>
+    <router-link class="home-btn" to="/">
+      <span class="m"><i class="fab fa-meetup"></i></span>
+    </router-link>
+    <!-- <span class="event" @click="toggleCartModal">
+      <i class="fas fa-calendar-week"></i>
+      <span class="bubble">{{ $store.getters.getAllProducts }}</span> -->
+    <!-- </span> -->
+    <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {
+  methods: {
+    toggleCartModal() {
+      this.$store.commit("TOGGLE_CART");
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.nav-bar {
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  padding: 0 2rem;
+  position: relative;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-links,
+  span.cart-icon {
+    display: none;
+
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        color: #833c3c;
+        opacity: 0.3;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  span {
+    color: rgb(3, 3, 3);
+    cursor: pointer;
+    font-size: 2rem;
+    // position: relative;
+  }
+}
+
+.home-btn {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-bar {
+    top: 0;
+    padding: 0 2rem;
+    background: #fff;
+
+    span.home-icon,
+    span.cart-icon,
+    .dots {
+      display: none;
+    }
+    .m {
+      display: none;
+    }
+
+    .nav-links {
+      display: block;
+
+      .brand {
+        margin-left: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding-right: 2rem;
+      }
+
+      a {
+        color: #000;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+</style>

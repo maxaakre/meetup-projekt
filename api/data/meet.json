@@ -2,14 +2,51 @@
   "meet": [
     {
       "id": 1,
+      "img": "logo",
       "title": "Vue Meeting",
       "desc": "Talking about the newest in Vue",
       "loc": "Stockholm Scandic Heymarket"
     },
     {
       "id": 2,
+      "img": "node",
       "title": "Node Meeting",
       "desc": "Talking about the newest in Node",
+      "loc": "Stockholm Scandic Heymarket"
+    },
+    {
+      "id": 3,
+      "img": "react",
+      "title": "React Meeting",
+      "desc": "Talking about the newest in React",
+      "loc": "Stockholm Scandic Heymarket"
+    },
+    {
+      "id": 4,
+      "img": "apple",
+      "title": "Apple Meeting",
+      "desc": "Talking about the newest in Apple",
+      "loc": "Stockholm Scandic Heymarket"
+    },
+    {
+      "id": 5,
+      "img": "windows",
+      "title": "Windows Meeting",
+      "desc": "Talking about the newest in Widows",
+      "loc": "Stockholm Scandic Heymarket"
+    },
+    {
+      "id": 6,
+      "img": "frontend",
+      "title": "Frontend Meeting",
+      "desc": "Talking about the newest in frontend",
+      "loc": "Stockholm Scandic Heymarket"
+    },
+    {
+      "id": 7,
+      "img": "backend",
+      "title": "Backend Meeting",
+      "desc": "Talking about the newest in Backend",
       "loc": "Stockholm Scandic Heymarket"
     }
   ]

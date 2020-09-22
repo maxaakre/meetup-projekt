@@ -3,12 +3,13 @@
     <img src="../assets/meet.png" alt="meet" />
     <h1>Meetups this month</h1>
     <Meet />
+    <router-view />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Meet from "@/components/Meet.vue";
+import Meet from "@/views/Meet.vue";
 
 export default {
   name: "Home",

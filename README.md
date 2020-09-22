@@ -19,3 +19,14 @@
 - docker push registry.heroku.com//web.
 - heroku container:release web
 - heroku open
+
+# Sedan gjorde jag backend för json där jag lägger alla mina meetups
+
+- Jag har lagt in 7st meetups i min json fil
+- Den hämtas med ett api anrop från min frontend i store och sedan in i min view som heter Meet
+
+# Jag har sedan fortsatt med tester och komponenter
+
+- Meet.spec.js tillhör Meet.vue där jag laddar in min json fil från json fil.
+- Navbar.spec.js Tillhör Navbar där jag använder mig av enn appsidemenu för meny val
+- AppSideMenu.spec.js anväds för att testa menyn.

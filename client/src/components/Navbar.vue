@@ -1,18 +1,14 @@
 <template>
   <nav class="nav-bar">
     <div class="nav-links">
-      <router-link to="/" class="brand">Meetup</router-link>|
-      <router-link to="/login">Login</router-link>
+      <router-link to="/">Meetup</router-link>|
+      <router-link to="/login" class="link">Login</router-link>
       <router-link to="/signup">Sign up</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
     <router-link class="home-btn" to="/">
       <span class="m"><i class="fab fa-meetup"></i></span>
     </router-link>
-    <!-- <span class="event" @click="toggleCartModal">
-      <i class="fas fa-calendar-week"></i>
-      <span class="bubble">{{ $store.getters.getAllProducts }}</span> -->
-    <!-- </span> -->
     <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <i class="fas fa-bars"></i>
     </div>
@@ -80,7 +76,7 @@ export default {
 
     span.home-icon,
     span.cart-icon,
-    .dots {
+    .hamburger {
       display: none;
     }
     .m {

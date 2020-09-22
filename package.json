@@ -1,0 +1,23 @@
+{
+  "name": "meetup",
+  "version": "1.0.0",
+  "description": "Test för jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxaakre/meetup-projekt.git"
+  },
+  "keywords": [],
+  "author": "Max Aakre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxaakre/meetup-projekt/issues"
+  },
+  "homepage": "https://github.com/maxaakre/meetup-projekt#readme",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}

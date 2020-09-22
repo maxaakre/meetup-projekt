@@ -6,7 +6,10 @@
       >
     </li>
     <li>
-      <router-link to="about" @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+      <router-link
+        class="link"
+        to="login"
+        @click.native="$store.commit('TOGGLE_SIDE_MENU')"
         >Log in</router-link
       >
     </li>
@@ -21,6 +24,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  name: "Appsidemenu",
   computed: { ...mapState(["isOpen"]) },
 };
 </script>

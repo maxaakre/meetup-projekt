@@ -2,8 +2,7 @@
   <div id="app">
     <div id="nav">
       <Navbar />
-      <!-- <cart-modal /> -->
-      <app-side-menu />
+      <AppSideMenu />
     </div>
 
     <router-view />
@@ -11,12 +10,10 @@
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue";
-// import CartModal from "@/components/CartModal.vue";
 import AppSideMenu from "@/components/AppSideMenu.vue";
 export default {
   components: {
     Navbar,
-    // CartModal,
     AppSideMenu,
   },
 };

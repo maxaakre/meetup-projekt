@@ -12,42 +12,48 @@
       "img": "node",
       "title": "Node Meeting",
       "desc": "Talking about the newest in Node",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/1-2021"
     },
     {
       "id": 3,
       "img": "react",
       "title": "React Meeting",
       "desc": "Talking about the newest in React",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/1-2021"
     },
     {
       "id": 4,
       "img": "apple",
       "title": "Apple Meeting",
       "desc": "Talking about the newest in Apple",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/5-2021"
     },
     {
       "id": 5,
       "img": "windows",
       "title": "Windows Meeting",
       "desc": "Talking about the newest in Widows",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/4-2021"
     },
     {
       "id": 6,
       "img": "frontend",
       "title": "Frontend Meeting",
       "desc": "Talking about the newest in frontend",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/3-2021"
     },
     {
       "id": 7,
       "img": "backend",
       "title": "Backend Meeting",
       "desc": "Talking about the newest in Backend",
-      "loc": "Stockholm Scandic Heymarket"
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "27/2-2021"
     }
   ]
 }

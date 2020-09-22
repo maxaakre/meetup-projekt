@@ -1,18 +1,20 @@
 <template>
-  <nav class="nav-bar">
-    <div class="nav-links">
-      <router-link to="/">Meetup</router-link>|
-      <router-link to="/login" class="link">Login</router-link>
-      <router-link to="/signup">Sign up</router-link>
-      <router-link to="/contact">Contact</router-link>
-    </div>
-    <router-link class="home-btn" to="/">
-      <span class="m"><i class="fab fa-meetup"></i></span>
-    </router-link>
-    <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
-      <i class="fas fa-bars"></i>
-    </div>
-  </nav>
+  <div class="wrappe">
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <router-link to="/">Meetup</router-link>|
+        <router-link to="/login" class="link">Login</router-link>
+        <router-link to="/signup">Sign up</router-link>
+        <router-link to="/contact">Contact</router-link>
+      </div>
+      <router-link class="home-btn" to="/">
+        <span class="m"><i class="fab fa-meetup"></i></span>
+      </router-link>
+      <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -39,6 +41,7 @@ export default {
   background: #fff;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgb(107, 104, 104);
 
   .nav-links,
   span.cart-icon {

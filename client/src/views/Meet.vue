@@ -34,9 +34,7 @@ import axios from "axios";
 export default {
   name: "Meet",
   async created() {
-    const RESPONSE = await axios.get(
-      "https://maxmeetup.herokuapp.com/api/meets"
-    );
+    const RESPONSE = await axios.get("/api/meets");
     this.items = RESPONSE.data;
   },
   data() {

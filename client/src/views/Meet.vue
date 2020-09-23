@@ -2,16 +2,17 @@
   <div class="container">
     <div class="meets">
       <ul class="meet-list">
-        <li v-for="item in items.meet" :key="item.id">
-          <div
-            class="meet-item"
-            @click="
-              $router.push({
-                name: 'event',
-                params: { id: item.id, item },
-              })
-            "
-          >
+        <li
+          v-for="item in items.meet"
+          :key="item.id"
+          @click="
+            $router.push({
+              name: 'event',
+              params: { id: item.id, item },
+            })
+          "
+        >
+          <div class="meet-item">
             <img
               class="product-image"
               :src="require('../assets/' + item.img + '.png')"
@@ -33,7 +34,9 @@ import axios from "axios";
 export default {
   name: "Meet",
   async created() {
-    const RESPONSE = await axios.get("http://localhost:5000/api/meets");
+    const RESPONSE = await axios.get(
+      "https://maxmeetup.herokuapp.com/api/meets"
+    );
     this.items = RESPONSE.data;
   },
   data() {

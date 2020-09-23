@@ -1,3 +1,4 @@
+
 FROM node:lts-alpine
 
 # make the 'app' folder the current working directory

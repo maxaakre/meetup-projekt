@@ -7,7 +7,7 @@
           >Create Event</router-link
         >
         <router-link v-if="!auth.loggedIn" to="/signup">Register</router-link>
-        <router-link to="/contact">Contact</router-link>
+        <router-link class="contact" to="/contact">Contact</router-link>
       </div>
       <router-link class="home-btn" to="/">
         <span class="m"><i class="fab fa-meetup"></i></span>

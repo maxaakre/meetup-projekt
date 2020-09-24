@@ -1,7 +1,9 @@
 <template>
   <div>
     <form class="form">
-      <h1>Register</h1>
+      <div class="message"></div>
+      <h1>{{ message }}</h1>
+
       <label for="text">Usermname</label>
       <input type="text" v-model="user.name" />
 
@@ -23,6 +25,7 @@
 export default {
   data() {
     return {
+      message: "Register",
       user: {
         email: "",
         password: "",

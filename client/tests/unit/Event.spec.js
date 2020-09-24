@@ -1,7 +1,10 @@
-import { mount } from "@vue/test-utils";
+import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import Event from "@/views/Event.vue";
+import VueRouter from "vue-router";
+import Vuex from "vuex";
+import store from "@/store/index.js";
 
-describe("Card.vue", () => {
+describe("Event.vue", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(Event);
@@ -17,5 +20,29 @@ describe("Card.vue", () => {
   it("should show form for reviews", () => {
     const amountWrapper = wrapper.find(".reviews");
     expect(amountWrapper.exists()).toBe(false);
+  });
+});
+
+const localVue = createLocalVue();
+localVue.use(VueRouter);
+
+describe("App.vue", () => {
+  it("renders a child component Event via routing", async () => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
+    const $route = {
+      path: "/event/:id",
+      store,
+    };
+    const wrapper = shallowMount(Event, {
+      localVue,
+      mocks: {
+        $route,
+      },
+      stubs: ["router-link"],
+    });
+
+    await wrapper.vm.$nextTick();
+    expect(wrapper.findComponent(Event).exists()).toBe(true);
   });
 });

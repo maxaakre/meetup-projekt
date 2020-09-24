@@ -8,9 +8,9 @@
     <li>
       <router-link
         class="link"
-        to="login"
+        to="contact"
         @click.native="$store.commit('TOGGLE_SIDE_MENU')"
-        >Log in</router-link
+        >Contact</router-link
       >
     </li>
     <li>

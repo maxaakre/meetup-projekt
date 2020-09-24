@@ -5,10 +5,12 @@ const PORT = process.env.PORT || 5000;
 const path = require("path");
 
 const meetRouter = require("./routes/meets");
+const userRoutes = require("./routes/users");
 
 app.use(express.json());
 app.use(cors());
 
+app.use("/api/users", userRoutes);
 app.use("/api/meets", meetRouter);
 app.use(express.static(path.join(__dirname, "/public")));
 app.get("/", (req, res) =>

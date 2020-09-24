@@ -22,15 +22,15 @@ const routes = [
     component: () => import("@/views/Event.vue"),
   },
   {
-    path: "/signnup",
+    path: "/signup",
     name: "Signup",
     component: () => import("../views/Signup.vue"),
   },
-  {
-    path: "/login",
-    name: "login",
-    component: () => import("../views/Login.vue"),
-  },
+  // {
+  //   path: "/login",
+  //   name: "login",
+  //   component: () => import("../views/Login.vue"),
+  // },
 ];
 
 const router = new VueRouter({

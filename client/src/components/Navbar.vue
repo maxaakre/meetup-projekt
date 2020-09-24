@@ -3,8 +3,8 @@
     <nav class="nav-bar">
       <div class="nav-links">
         <router-link to="/">Meetup</router-link>|
-        <router-link to="/login" class="link">Login</router-link>
-        <router-link to="/signup">Sign up</router-link>
+        <router-link v-if="auth.loggedIn" to="/me">My Account</router-link>
+        <router-link v-if="!auth.loggedIn" to="/signup">Register</router-link>
         <router-link to="/contact">Contact</router-link>
       </div>
       <router-link class="home-btn" to="/">
@@ -14,14 +14,24 @@
         <i class="fas fa-bars"></i>
       </div>
     </nav>
+    <login />
   </div>
 </template>
 
 <script>
+import login from "./Login";
 export default {
+  components: {
+    login,
+  },
   methods: {
     toggleCartModal() {
       this.$store.commit("TOGGLE_CART");
+    },
+  },
+  computed: {
+    auth() {
+      return this.$store.state.auth;
     },
   },
 };
@@ -63,7 +73,7 @@ export default {
     color: rgb(3, 3, 3);
     cursor: pointer;
     font-size: 2rem;
-    // position: relative;
+    position: relative;
   }
 }
 

@@ -26,9 +26,9 @@
     <section v-if="showModal && auth.loggedIn" class="login-modal">
       <p>{{ auth.user.name }}</p>
       <a href="#" class="btn large" @click="logout">Logout</a>
-      <!-- <router-link class="event" v-if="auth.loggedIn" to="/newevent"
+      <router-link class="event" v-if="auth.loggedIn" to="/newevent"
         >New event</router-link
-      > -->
+      >
     </section>
   </aside>
 </template>

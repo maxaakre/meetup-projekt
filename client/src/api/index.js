@@ -17,7 +17,7 @@ export const register = async (newUser) => {
 };
 
 export const login = async (credentials) => {
-  console.log("POST /api/auth", " - Payload: ", credentials);
+  console.log("POST /api/users", " - Payload: ", credentials);
   const response = await api.post("/auth", credentials);
   console.log("Response: ", response);
   return response.data;

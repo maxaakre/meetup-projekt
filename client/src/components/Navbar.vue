@@ -2,8 +2,10 @@
   <div class="wrappe">
     <nav class="nav-bar">
       <div class="nav-links">
-        <router-link to="/">Meetup</router-link>|
-        <router-link v-if="auth.loggedIn" to="/me">My Account</router-link>
+        <router-link to="/">Meetup</router-link>
+        <router-link v-if="auth.loggedIn" to="/Newevent"
+          >Create Event</router-link
+        >
         <router-link v-if="!auth.loggedIn" to="/signup">Register</router-link>
         <router-link to="/contact">Contact</router-link>
       </div>

@@ -4,7 +4,11 @@
       <img src="@/assets/login.png" alt="login" />
     </div>
     <form v-if="showModal && !auth.loggedIn" class="login-modal">
-      <label for="">
+      <div class="message">
+        <h3>{{ message }}</h3>
+      </div>
+
+      <label for="email">
         Email
         <input
           type="email"
@@ -13,7 +17,7 @@
           autocomplete="off"
         />
       </label>
-      <label for="">
+      <label for="password">
         Password
         <input
           type="password"
@@ -25,7 +29,7 @@
     </form>
     <section v-if="showModal && auth.loggedIn" class="login-modal">
       <p>{{ auth.user.name }}</p>
-      <a href="#" class="btn large" @click="logout">Logout</a>
+      <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
       <router-link class="event" v-if="auth.loggedIn" to="/newevent"
         >New event</router-link
       >
@@ -39,6 +43,7 @@ export default {
   name: "Login",
   data() {
     return {
+      message: "Login",
       showModal: false,
       credentials: {
         email: "",

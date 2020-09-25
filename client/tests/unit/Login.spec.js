@@ -1,49 +1,62 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
+import Vuex from "vuex";
 import Login from "@/components/Login.vue";
 
-describe("Login", () => {
-  it("renders a message and responds correctly to user input", () => {
-    const wrapper = shallowMount(Login, {
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
+const store = new Vuex.Store({
+  state: {
+    showModal: true,
+    auth: {
+      loggedIn: false,
+    },
+  },
+});
+
+describe("Login.vue", () => {
+  let wrapper;
+  let credentials;
+  beforeEach(() => {
+    wrapper = shallowMount(Login, {
+      store,
+      localVue,
       data() {
         return {
-          message: "Login",
-          email: "",
-          password: "",
+          credentials: {
+            email: "max@gmail.com",
+          },
+          showModal: false,
         };
       },
     });
-
-    // see if the message renders
-    // expect(wrapper.findAll(".message").length()).toEqual("Login");
-
-    // update the `username` and assert error is no longer rendered
-    wrapper.setData({ email: "Max@gmail.com" });
-    expect(wrapper.find("input[type='email']").exists()).toBe(false);
+    credentials = wrapper.find("#email");
   });
-  test("sends post request with email on submit", () => {
-    const axios = {
-      // #A
-      post: jest.fn(),
-    };
-    const wrapper = shallowMount(Login, {
-      data() {
-        return {
-          message: "Login",
-          email: "",
-          password: "",
-        };
-      },
-      mocks: {
-        axios,
-      },
+
+  test("should check if login form exist", () => {
+    expect(wrapper.find("form").exists()).toBe(true);
+  });
+
+  test("should return value inserted in input", () => {
+    credentials.setValue("max@gmail.com");
+    expect(credentials.element.value).toMatch("max@gmail.com");
+  });
+
+  test("should check if input value is stored in data property", () => {
+    credentials.setValue("max@gmail.com");
+    expect(wrapper.vm.credentials.email).toMatch("max@gmail.com");
+  });
+
+  test("should check if input is empty and display error message", async () => {
+    await wrapper.trigger("submit");
+    expect(wrapper.vm.error).toMatch("Fill in input fielde's");
+  });
+
+  test("should check if user has submitted the form", async () => {
+    await wrapper.trigger("submit");
+    wrapper.setData({
+      showModal: true,
     });
-    const input = wrapper.find('input[type="email"]'); // #C
-    input.setValue("email@gmail.com"); // #D
-    wrapper.find(".button").trigger("submit"); // #F
-    const url = "http://localhost:8080/api/users/auth";
-    const expectedData = expect.objectContaining({
-      email: "email@gmail.com",
-    });
-    expect(axios.post).toHaveBeenCalledWith(url, expectedData); // #G
+    expect(wrapper.vm.showModal).toBe(true);
   });
 });

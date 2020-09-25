@@ -1,19 +1,23 @@
 <template>
   <aside class="login form" v-click-outside="close">
-    <div class="icon" @click="showModal = !showModal">
+    <div class="icon" @click="toggleLogin">
       <img src="@/assets/login.png" alt="login" />
     </div>
-    <form v-if="showModal && !auth.loggedIn" class="login-modal">
+    <form
+      v-if="$store.state.showModal && !auth.loggedIn"
+      class="login-modal"
+      @submit.prevent="login"
+    >
       <div class="message">
         <h3>{{ message }}</h3>
       </div>
-
+      <p class="error-message">{{ error }}</p>
       <label for="email">
         Email
         <input
           type="email"
+          id="email"
           v-model="credentials.email"
-          @keyup.enter="login"
           autocomplete="off"
         />
       </label>
@@ -21,13 +25,14 @@
         Password
         <input
           type="password"
+          id="password"
           v-model="credentials.password"
           autocomplete="off"
         />
       </label>
-      <a href="#" class="btn large" @click="login">Login</a>
+      <button class="btn large">Login</button>
     </form>
-    <section v-if="showModal && auth.loggedIn" class="login-modal">
+    <section v-if="$store.state.showModal && auth.loggedIn" class="login-modal">
       <p>{{ auth.user.name }}</p>
       <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
       <router-link class="event" v-if="auth.loggedIn" to="/newevent"
@@ -44,11 +49,11 @@ export default {
   data() {
     return {
       message: "Login",
-      showModal: false,
       credentials: {
         email: "",
         password: "",
       },
+      error: "Fill in input fielde's",
     };
   },
   computed: {
@@ -57,18 +62,28 @@ export default {
     },
   },
   methods: {
-    // closeLogin() {
-    //   this.showModal = false;
-    // },
+    toggleLogin() {
+      this.$store.commit("toggleLogin");
+    },
+
+    closeLogin() {
+      this.$store.commit("toggleLogin");
+    },
+
     login() {
+      this.error = "";
+      if (this.credentials.email == "" || this.credentials.password == "") {
+        this.error = "Fill in input fielde's";
+        return;
+      }
       this.$store.dispatch("login", this.credentials);
-      this.showModal = false;
+      this.$store.commit("toggleLogin");
     },
     logout() {
       this.$store.dispatch("logout");
     },
     close() {
-      this.showModal = false;
+      this.$store.commit("toggleLogin");
     },
   },
   directives: { ClickOutside },
@@ -121,6 +136,11 @@ export default {
     p {
       margin: auto;
     }
+    p.error-message {
+      color: red;
+      margin: 1rem 0;
+      font-size: 0.8rem;
+    }
 
     &:after {
       content: "";
@@ -157,6 +177,9 @@ export default {
 
     .btn {
       margin-top: 1rem;
+      border: none;
+      text-decoration: underline;
+      background: none;
     }
   }
 }

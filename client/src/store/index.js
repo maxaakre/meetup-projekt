@@ -12,6 +12,7 @@ export default new Vuex.Store({
     items: [],
     isOpen: false,
     cartModalOpen: false,
+    showModal: false,
     auth: {
       loggedIn: false,
       error: false,
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    toggleLogin(state) {
+      state.showModal = !state.showModal;
+    },
     displayMeets(state, items) {
       state.items = items;
     },

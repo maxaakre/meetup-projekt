@@ -75,7 +75,7 @@ describe("Event.vue", () => {
       },
     });
   });
-  test("should check if component exist ", () => {
+  it("should check if component exist ", () => {
     expect(wrapper.findComponent(Event).exists()).toBe(true);
   });
 });

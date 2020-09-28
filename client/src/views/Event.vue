@@ -128,15 +128,15 @@ export default {
 <style lang="scss" scoped>
 .card {
   height: 100%;
-  background: #c2bcbc;
+
   padding: 1rem 0;
   // display: flex;
   ul {
     li {
-      background: #c2bcbc;
+      list-style: none;
     }
     .product-image {
-      padding: 2rem;
+      padding: 0.5rem;
     }
     h4 {
       padding: 1rem;
@@ -151,12 +151,6 @@ export default {
       padding: 2rem 0;
       font-weight: bold;
     }
-    button {
-      padding: 2rem;
-      border-radius: 5px;
-      margin-left: 0.2 rem;
-      margin-top: 1rem;
-    }
     .if {
       padding: 2.5rem;
     }
@@ -167,6 +161,9 @@ export default {
       flex-flow: column;
       padding: 1rem;
     }
+    .btn-attend {
+      margin: 1rem;
+    }
     #title {
       padding: 0.5rem;
     }
@@ -176,6 +173,10 @@ export default {
     #send {
       padding: 0.8rem;
       align-items: center;
+      border-radius: 5px;
+      width: 50%;
+      margin: auto;
+      margin-top: 10px;
     }
   }
   span {
@@ -186,8 +187,9 @@ export default {
   }
 }
 @media screen and (min-width: 768px) {
-  .container {
-    margin-top: 50px;
+  .card {
+    width: 70%;
+    margin: auto;
   }
 }
 </style>

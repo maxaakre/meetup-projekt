@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="form">
+    <form class="form" @submit.prevent="register">
       <div class="message"></div>
       <h1>{{ message }}</h1>
 
@@ -15,8 +15,7 @@
 
       Repeat Password
       <input type="password" v-model="user.repeatPassword" />
-
-      <a href="#" class="btn" @click="register">Sign me up!</a>
+      <button class="btn">Sign me up!</button>
     </form>
   </div>
 </template>
@@ -59,20 +58,18 @@ export default {
   margin: auto;
   width: 370px;
   height: 100vh;
-  padding: 3rem 0;
-  background: #f3e4e1;
+  // padding: 1rem 0;
 }
 input {
   width: 300px;
   padding: 1rem;
   margin: 1rem auto;
   border: 1px solid black;
-  background: #f3e4e1;
 }
 .btn {
-  width: 300px;
-  padding: 1rem;
-  margin: auto;
+  width: 50%;
+  height: 50px;
+  margin: 1rem auto;
   font-size: 24px;
   border-radius: 5px;
   color: #fff;

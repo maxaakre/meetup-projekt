@@ -38,9 +38,9 @@
     <section v-if="showModal && auth.loggedIn" class="login-modal">
       <p>{{ auth.user.name }}</p>
       <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
-      <router-link class="event" v-if="auth.loggedIn" to="/newevent"
-        >New event</router-link
-      >
+      <router-link class="btn" v-if="auth.loggedIn" to="/newevent">
+        New event
+      </router-link>
     </section>
   </aside>
 </template>
@@ -96,21 +96,12 @@ export default {
 <style lang="scss" scoped>
 .login {
   background: #fff;
-  z-index: +3;
-  width: 100px;
-  height: 100px;
+  z-index: 3;
+  width: 80px;
   background: none;
-  // padding: 0.25rem;
-  // margin-left: 1rem;
-  top: 0.2rem;
-  // bottom: 6rem;
-  right: 8.5rem;
-  // margin: auto;
-  // display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 999rem;
-  position: absolute;
+  position: relative;
 
   .icon {
     display: flex;
@@ -128,17 +119,18 @@ export default {
   }
 
   .login-modal {
-    width: 18rem;
+    width: 14rem;
     padding: 1rem;
     background: white;
-    position: relative;
-    top: 0.25rem;
-    right: 6rem;
+    position: absolute;
+    top: 60px;
+    right: 50%;
+    transform: translateX(50%);
     z-index: 222;
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
     display: block;
     a {
-      padding: 1rem;
+      padding: 0.5rem;
     }
     p {
       margin: auto;
@@ -188,6 +180,11 @@ export default {
       text-decoration: underline;
       background: none;
     }
+  }
+}
+@media screen and (min-width: 768px) {
+  .login {
+    right: 4rem;
   }
 }
 </style>

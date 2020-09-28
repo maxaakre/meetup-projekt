@@ -5,7 +5,7 @@
       <input
         type="text"
         class="title"
-        placeholder="ex,coding,amimals,paint?"
+        placeholder="Ex,coding,amimals,paint?"
         name="title"
         v-model="meeting.title"
       />
@@ -18,13 +18,12 @@
         v-model="meeting.desc"
       />
       <label for="contnet">Fill information</label>
-      <input
-        type="text"
+      <textarea
         class="content"
         placeholder="Write your info here..."
         name="content"
         v-model="meeting.content"
-      />
+      ></textarea>
       <label for="loc"> Fill location</label>
       <input
         type="text"
@@ -55,7 +54,7 @@ export default {
         img: "groupmeet",
         title: "",
         desc: "",
-        content: "",
+        textarea: "",
         loc: "",
         date: "",
       },
@@ -67,27 +66,32 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   height: 100vh;
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #c2bcbc;
+    color: #000;
   }
   label {
-    padding: 1rem;
+    padding: 0.3rem;
   }
   input {
     width: 300px;
     height: 40px;
     font-size: 20px;
     display: flex;
+    &::placeholder {
+      color: #000;
+    }
   }
   .content {
     width: 300px;
     height: 300px;
-    text-align: start;
-    .textarea {
-      justify-self: start;
+    font-size: 18px;
+    padding: 5px;
+    &::placeholder {
+      color: #000;
     }
   }
   button {
@@ -95,5 +99,7 @@ export default {
     margin: 1rem;
     background: none;
   }
+}
+@media screen and (min-width: 768px) {
 }
 </style>

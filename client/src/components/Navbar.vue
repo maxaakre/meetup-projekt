@@ -12,11 +12,11 @@
       <router-link class="home-btn" to="/">
         <span class="m"><i class="fab fa-meetup"></i></span>
       </router-link>
+      <login />
       <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
         <i class="fas fa-bars"></i>
       </div>
     </nav>
-    <login />
   </div>
 </template>
 
@@ -41,11 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  max-width: 375px;
   .nav-bar {
-    left: 0;
-    right: 0;
-    top: 0;
     z-index: 3;
     width: 100%;
     height: 70px;

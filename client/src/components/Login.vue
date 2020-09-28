@@ -1,10 +1,10 @@
 <template>
   <aside class="login form" v-click-outside="close">
-    <div class="icon" @click="toggleLogin">
+    <div class="icon" @click="showModal = !showModal">
       <img src="@/assets/login.png" alt="login" />
     </div>
     <form
-      v-if="$store.state.showModal && !auth.loggedIn"
+      v-if="showModal && !auth.loggedIn"
       class="login-modal"
       @submit.prevent="login"
     >
@@ -30,9 +30,12 @@
           autocomplete="off"
         />
       </label>
-      <button class="btn large">Login</button>
+      <button class="btn large" @click="login">Login</button>
+      <router-link to="signup" @click="showModal = !showModal"
+        >Signup</router-link
+      >
     </form>
-    <section v-if="$store.state.showModal && auth.loggedIn" class="login-modal">
+    <section v-if="showModal && auth.loggedIn" class="login-modal">
       <p>{{ auth.user.name }}</p>
       <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
       <router-link class="event" v-if="auth.loggedIn" to="/newevent"
@@ -49,6 +52,7 @@ export default {
   data() {
     return {
       message: "Login",
+      showModal: false,
       credentials: {
         email: "",
         password: "",
@@ -63,11 +67,11 @@ export default {
   },
   methods: {
     toggleLogin() {
-      this.$store.commit("toggleLogin");
+      this.showModal = false;
     },
 
     closeLogin() {
-      this.$store.commit("toggleLogin");
+      this.showModal = false;
     },
 
     login() {
@@ -77,13 +81,13 @@ export default {
         return;
       }
       this.$store.dispatch("login", this.credentials);
-      this.$store.commit("toggleLogin");
+      this.showModal = false;
     },
     logout() {
       this.$store.dispatch("logout");
     },
     close() {
-      this.$store.commit("toggleLogin");
+      this.showModal = false;
     },
   },
   directives: { ClickOutside },
@@ -93,14 +97,16 @@ export default {
 .login {
   background: #fff;
   z-index: +3;
-  width: 4rem;
-  height: 4rem;
-  padding: 0.25rem;
-  margin-left: 1rem;
-  top: 0.3rem;
-  bottom: 6rem;
-  right: 9rem;
-  display: flex;
+  width: 100px;
+  height: 100px;
+  background: none;
+  // padding: 0.25rem;
+  // margin-left: 1rem;
+  top: 0.2rem;
+  // bottom: 6rem;
+  right: 8.5rem;
+  // margin: auto;
+  // display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 999rem;
@@ -125,8 +131,9 @@ export default {
     width: 18rem;
     padding: 1rem;
     background: white;
-    position: absolute;
-    top: 3.25rem;
+    position: relative;
+    top: 0.25rem;
+    right: 6rem;
     z-index: 222;
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
     display: block;

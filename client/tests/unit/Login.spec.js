@@ -7,7 +7,6 @@ localVue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    showModal: true,
     auth: {
       loggedIn: false,
     },
@@ -26,7 +25,7 @@ describe("Login.vue", () => {
           credentials: {
             email: "max@gmail.com",
           },
-          showModal: false,
+          showModal: true,
         };
       },
     });

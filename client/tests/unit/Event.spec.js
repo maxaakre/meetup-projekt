@@ -26,7 +26,7 @@ describe("Event.vue", () => {
 const localVue = createLocalVue();
 localVue.use(VueRouter);
 
-describe("App.vue", () => {
+describe("Event.vue", () => {
   it("renders a child component Event via routing", async () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
@@ -43,6 +43,39 @@ describe("App.vue", () => {
     });
 
     await wrapper.vm.$nextTick();
+    expect(wrapper.findComponent(Event).exists()).toBe(true);
+  });
+});
+
+const store2 = new Vuex.Store({
+  state: {
+    eventList: [],
+    eventReviews: [],
+  },
+  getters: {
+    showCurrentReview: (state) => (id) => {
+      return state.eventReviews.filter((review) => review.id == id);
+    },
+  },
+});
+
+describe("Event.vue", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(Event, {
+      localVue,
+      store2,
+      setProps: {
+        id: 1,
+        img: "logo",
+        title: "Vue Meeting",
+        desc: "Talking about the newest in Vue",
+        date: "2021-01-10",
+        attendees: 1,
+      },
+    });
+  });
+  test("should check if component exist ", () => {
     expect(wrapper.findComponent(Event).exists()).toBe(true);
   });
 });

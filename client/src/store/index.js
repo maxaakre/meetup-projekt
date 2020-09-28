@@ -9,9 +9,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    eventList: [],
+    eventReviews: [],
     items: [],
     isOpen: false,
-    cartModalOpen: false,
     showModal: false,
     auth: {
       loggedIn: false,
@@ -31,9 +32,6 @@ export default new Vuex.Store({
     },
     TOGGLE_SIDE_MENU(state) {
       state.isOpen = !state.isOpen;
-    },
-    TOGGLE_CART(state) {
-      state.cartModalOpen = !state.cartModalOpen;
     },
     auth(state, body) {
       state.auth.user = body.user;
@@ -60,9 +58,26 @@ export default new Vuex.Store({
       state.auth.loggedIn = false;
       state.auth.error = false;
       API.clearAuthHeader();
-      state.cart = [];
-      state.orderHistory = [];
-      sessionStorage.removeItem("sinus");
+      sessionStorage.removeItem("meetup");
+    },
+    setEventData(state, event) {
+      const eventExists = state.eventList.some((item) => item.id === event.id);
+      if (eventExists) {
+        state.eventList = state.eventList.filter((e) => e.id !== event.id);
+      } else {
+        state.eventList.push(event);
+        localStorage.setItem("attended", JSON.stringify(state.eventList));
+      }
+    },
+    setEventArray(state, events) {
+      state.eventList = events;
+    },
+    setEventReview(state, eventReview) {
+      state.eventReviews.push(eventReview);
+      localStorage.setItem("reviews", JSON.stringify(state.eventReviews));
+    },
+    setReviewsArray(state, reviews) {
+      state.eventReviews = reviews;
     },
   },
   actions: {
@@ -104,5 +119,9 @@ export default new Vuex.Store({
       commit("logout");
     },
   },
-  modules: {},
+  getters: {
+    showCurrentReview: (state) => (id) => {
+      return state.eventReviews.filter((review) => review.id == id);
+    },
+  },
 });

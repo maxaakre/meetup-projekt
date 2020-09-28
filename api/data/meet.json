@@ -5,55 +5,70 @@
       "img": "logo",
       "title": "Vue Meeting",
       "desc": "Talking about the newest in Vue",
-      "loc": "Stockholm Scandic Heymarket"
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
+      "loc": "Stockholm Scandic Heymarket",
+      "date": "2021-01-10",
+      "attendees": 1
     },
     {
       "id": 2,
       "img": "node",
       "title": "Node Meeting",
       "desc": "Talking about the newest in Node",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/1-2021"
+      "date": "2021-03-30",
+      "attendees": 2
     },
     {
       "id": 3,
       "img": "react",
       "title": "React Meeting",
       "desc": "Talking about the newest in React",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/1-2021"
+      "date": "2021-10-01",
+      "attendees": 3
     },
     {
       "id": 4,
       "img": "apple",
       "title": "Apple Meeting",
       "desc": "Talking about the newest in Apple",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/5-2021"
+      "date": "2021-01-26",
+      "attendees": 1
     },
     {
       "id": 5,
       "img": "windows",
       "title": "Windows Meeting",
       "desc": "Talking about the newest in Widows",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/4-2021"
+      "date": "2021-04-15",
+      "attendees": 5
     },
     {
       "id": 6,
       "img": "frontend",
       "title": "Frontend Meeting",
       "desc": "Talking about the newest in frontend",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/3-2021"
+      "date": "2021-02-13",
+      "attendees": 6
     },
     {
       "id": 7,
       "img": "backend",
       "title": "Backend Meeting",
       "desc": "Talking about the newest in Backend",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla orci libero, pharetra id quam ut, dapibus semper dolor. Pellentesque ut risus ut risus tristique efficitur at at libero. Mauris non tempor est. Quisque vulputate a lorem nec dictum. Phasellus dictum tortor in magna congue cursus. Praesent felis diam, egestas ut est sit amet, commodo rutrum nisl. Aenean varius in mi sed fermentum. Aliquam laoreet mi at egestas vulputate. ",
       "loc": "Stockholm Scandic Heymarket",
-      "date": "27/2-2021"
+      "date": "2021-03-14",
+      "attendees": 7
     }
   ]
 }

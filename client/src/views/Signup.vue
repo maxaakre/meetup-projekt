@@ -34,6 +34,11 @@ export default {
       },
     };
   },
+  computed: {
+    auth() {
+      return this.$store.state.auth;
+    },
+  },
   methods: {
     async register() {
       try {

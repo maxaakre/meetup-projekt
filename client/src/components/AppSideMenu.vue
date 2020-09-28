@@ -38,9 +38,10 @@ export default {
 
   a {
     display: block;
-    padding: 1rem 2rem;
+    padding: 1rem;
     width: 100%;
     color: whitesmoke;
+    margin: auto;
   }
   li {
     list-style: none;

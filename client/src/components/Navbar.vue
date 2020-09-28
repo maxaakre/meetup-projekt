@@ -1,5 +1,5 @@
 <template>
-  <div class="wrappe">
+  <div class="wrapper">
     <nav class="nav-bar">
       <div class="nav-links">
         <router-link to="/">Meetup</router-link>
@@ -40,77 +40,85 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-bar {
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 3;
-  width: 100%;
-  height: 70px;
-  display: flex;
-  padding: 0 2rem;
-  position: relative;
-  background: #fff;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgb(107, 104, 104);
-
-  .nav-links,
-  span.cart-icon {
-    display: none;
-
-    a {
-      color: #000;
-      text-decoration: none;
-
-      &:hover {
-        color: #833c3c;
-        opacity: 0.3;
-        transition: 0.3s;
-      }
-    }
-  }
-
-  span {
-    color: rgb(3, 3, 3);
-    cursor: pointer;
-    font-size: 2rem;
-    position: relative;
-  }
-}
-
-.home-btn {
-  text-decoration: none;
-}
-
-@media screen and (min-width: 1024px) {
+.wrapper {
+  max-width: 375px;
   .nav-bar {
+    left: 0;
+    right: 0;
     top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 70px;
+    display: flex;
     padding: 0 2rem;
+    position: relative;
     background: #fff;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(107, 104, 104);
 
-    span.home-icon,
-    span.cart-icon,
-    .hamburger {
+    .nav-links,
+    span.cart-icon {
       display: none;
-    }
-    .m {
-      display: none;
-    }
-
-    .nav-links {
-      display: block;
-
-      .brand {
-        margin-left: 0;
-        font-size: 1.2rem;
-        font-weight: bold;
-        padding-right: 2rem;
-      }
 
       a {
         color: #000;
-        margin-left: 2rem;
+        text-decoration: none;
+
+        &:hover {
+          color: #833c3c;
+          opacity: 0.3;
+          transition: 0.3s;
+        }
+      }
+    }
+
+    span {
+      color: rgb(3, 3, 3);
+      cursor: pointer;
+      font-size: 2rem;
+      position: relative;
+    }
+  }
+
+  .home-btn {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 100%;
+    .nav-bar {
+      top: 0;
+      padding: 0 2rem;
+      width: 100%;
+      background: #fff;
+      border-bottom: none;
+      span.home-icon,
+      span.cart-icon,
+      .hamburger {
+        display: none;
+      }
+      .m {
+        display: none;
+      }
+
+      .nav-links {
+        display: block;
+        width: 100%;
+
+        .brand {
+          margin-left: 0;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding-right: 2rem;
+        }
+
+        a {
+          color: #000;
+          margin-left: 2rem;
+        }
       }
     }
   }

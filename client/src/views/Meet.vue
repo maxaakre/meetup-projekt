@@ -55,6 +55,7 @@ span {
 .meets {
   display: flex;
   margin: auto;
+  height: 100vh;
 
   ul {
     list-style: none;
@@ -75,6 +76,16 @@ span {
     width: 50px;
     height: 50px;
     // margin: 1rem 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+  }
+  ul {
+    margin: auto;
   }
 }
 </style>

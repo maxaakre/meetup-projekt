@@ -130,7 +130,7 @@ export default {
   height: 100%;
 
   padding: 1rem 0;
-  // display: flex;
+
   ul {
     li {
       list-style: none;
@@ -140,11 +140,11 @@ export default {
     }
     h4 {
       padding: 1rem;
-      text-align: left;
+      text-align: center;
     }
     p {
       padding: 0 1rem;
-      text-align: left;
+      text-align: center;
       line-height: 1.5;
     }
     .time {

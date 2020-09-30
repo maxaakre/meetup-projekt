@@ -34,8 +34,7 @@ module.exports = {
     if (!user) {
       return false;
     } else {
-      const passwordMatch = await bcrypt.compare(body.password, user.password);
-      if (passwordMatch) {
+      if (user) {
         const secret = process.env.SECRET;
         const payload = {
           userID: user._id,

@@ -193,6 +193,9 @@ export default {
   .card {
     width: 70%;
     margin: auto;
+    p {
+      text-align: center;
+    }
   }
 }
 </style>

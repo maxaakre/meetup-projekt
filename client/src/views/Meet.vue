@@ -84,7 +84,7 @@ export default {
     li {
       background: #d8dfdb;
       padding: 1rem;
-      margin: 1rem;
+      margin: 1rem auto;
       width: 300px;
       height: 200px;
       border-radius: 5px;

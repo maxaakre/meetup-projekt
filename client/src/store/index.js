@@ -107,22 +107,13 @@ export default new Vuex.Store({
         })
         .catch(console.log);
     },
-    // checkAuth({ commit }) {
-    //   if (sessionStorage.getItem("meetup")) {
-    //     const persistedData = JSON.parse(sessionStorage.getItem("meetup"));
-    //     commit("auth", persistedData);
-    //     console.log("User Authorized");
-    //   } else {
-    //     commit("logout");
-    //     console.log("User Not Authorized");
-    //   }
-    // },
 
     register({ commit }, newUser) {
       API.register(newUser)
         .then((user) => {
-          commit("Auth", user);
+          commit("auth", user);
           commit("login");
+          alert("you are registred");
         })
         .catch(console.log);
     },
@@ -143,6 +134,7 @@ export default new Vuex.Store({
       API.createProduct(newProduct)
         .then((product) => {
           commit("addProduct", product);
+          alert("Your meeting is added go to home");
         })
         .catch(console.log);
     },

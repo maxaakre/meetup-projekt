@@ -31,12 +31,13 @@
         />
       </label>
       <button class="btn large">Login</button>
-      <router-link to="/signup">Signup</router-link>
+      <router-link name="signup" to="/signup">Signup</router-link>
     </form>
     <section v-if="showModal && auth.loggedIn" class="login-modal">
-      <!-- <p>{{ auth.user.name }}</p> -->
       <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
-      <router-link class="btn" to="/newevent"> New event </router-link>
+      <router-link name="newevent" class="btn" to="/newevent">
+        New event
+      </router-link>
     </section>
   </aside>
 </template>

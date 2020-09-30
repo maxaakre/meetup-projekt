@@ -20,6 +20,7 @@ describe("Login.vue", () => {
     wrapper = shallowMount(Login, {
       store,
       localVue,
+      stubs: ["router-link"],
       data() {
         return {
           credentials: {

@@ -1,21 +1,22 @@
 <template>
   <div>
-    <form class="form" @submit.prevent="register">
+    <form class="form">
       <div class="message"></div>
       <h1>{{ message }}</h1>
-
+      <p class="error-message">{{ error }}</p>
       <label for="text">Usermname</label>
-      <input type="text" v-model="user.name" />
+      <input type="text" v-model="credentials.name" />
 
       <label for="email">Email</label>
-      <input type="email" v-model="user.email" />
+      <input type="email" v-model="credentials.email" />
 
       <label for="password">Password</label>
-      <input type="password" v-model="user.password" />
+      <input type="password" v-model="credentials.password" />
 
       Repeat Password
-      <input type="password" v-model="user.repeatPassword" />
-      <button class="btn">Sign me up!</button>
+      <input type="password" v-model="credentials.repeatPassword" />
+
+      <a href="#" @click="register" class="btn"> Sign me up! </a>
     </form>
   </div>
 </template>
@@ -25,12 +26,14 @@ export default {
   data() {
     return {
       message: "Register",
-      user: {
+      logedIn: "You are registerd go to login",
+      credentials: {
         email: "",
         password: "",
         repeatPassword: "",
         name: "",
       },
+      error: "Fill in input fielde's",
     };
   },
   computed: {
@@ -40,12 +43,20 @@ export default {
   },
   methods: {
     async register() {
-      try {
-        await this.$store.dispatch("register", this.user);
-        await this.$router.push("/");
-      } catch (err) {
-        console.error(err);
+      this.error = "";
+      if (this.credentials.email == "" || this.credentials.password == "") {
+        this.error = "Fill in input fielde's";
+        return;
+      } else if (!this.validEmail(this.credentials.email)) {
+        this.error = "invalid mail";
+        return;
       }
+      await this.$store.dispatch("register", this.credentials);
+      await sessionStorage.setItem("meetup", JSON.stringify(this.credentials));
+    },
+    validEmail: function (email) {
+      var regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regEx.test(email);
     },
   },
 };

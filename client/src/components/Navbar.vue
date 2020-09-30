@@ -12,7 +12,7 @@
       <router-link class="home-btn" to="/">
         <span class="m"><i class="fab fa-meetup"></i></span>
       </router-link>
-      <login />
+      <Login />
       <div class="hamburger" @click="$store.commit('TOGGLE_SIDE_MENU')">
         <i class="fas fa-bars"></i>
       </div>
@@ -21,15 +21,15 @@
 </template>
 
 <script>
-import login from "./Login";
+import Login from "./Login.vue";
 export default {
   components: {
-    login,
+    Login,
   },
   methods: {
-    toggleCartModal() {
-      this.$store.commit("TOGGLE_CART");
-    },
+    // toggleCartModal() {
+    //   this.$store.commit("TOGGLE_SIDE_MENU");
+    // },
   },
   computed: {
     auth() {

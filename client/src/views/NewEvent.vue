@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <form>
+    <form @submit.prevent="createEvent">
       <label for="title">Fill title for Event</label>
       <input
         type="text"
@@ -17,6 +17,7 @@
         name="desc"
         v-model="meeting.desc"
       />
+
       <label for="contnet">Fill information</label>
       <textarea
         class="content"
@@ -54,11 +55,17 @@ export default {
         img: "groupmeet",
         title: "",
         desc: "",
-        textarea: "",
+        content: "",
         loc: "",
         date: "",
+        attendees: "",
       },
     };
+  },
+  methods: {
+    createEvent() {
+      this.$store.dispatch("createProduct", this.meeting);
+    },
   },
 };
 </script>
@@ -101,5 +108,14 @@ export default {
   }
 }
 @media screen and (min-width: 768px) {
+  .wrapper {
+    input {
+      font-size: 12px;
+      height: 30px;
+    }
+    .content {
+      height: 200px;
+    }
+  }
 }
 </style>

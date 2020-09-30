@@ -14,6 +14,8 @@ export default new Vuex.Store({
     items: [],
     isOpen: false,
     showModal: false,
+    productItems: [],
+    loding: false,
     auth: {
       loggedIn: false,
       error: false,
@@ -79,6 +81,18 @@ export default new Vuex.Store({
     setReviewsArray(state, reviews) {
       state.eventReviews = reviews;
     },
+    addProduct(state, product) {
+      state.productItems.push(product);
+      state.productItems = state.items.sort((a, b) => a.title > b.title);
+    },
+    setProducts(state, products) {
+      state.productItems = products;
+    },
+    removeProduct(state, productId) {
+      state.productItems = state.productItems.filter(
+        (product) => product._id != productId
+      );
+    },
   },
   actions: {
     async getMeetList(context) {
@@ -86,21 +100,28 @@ export default new Vuex.Store({
       context.commit("displayMeets", resp.data.meet);
       console.log(resp);
     },
-    checkAuth({ commit }) {
-      if (sessionStorage.getItem("meetup")) {
-        const persistedData = JSON.parse(sessionStorage.getItem("meetup"));
-        commit("auth", persistedData);
-        console.log("User Authorized");
-      } else {
-        commit("logout");
-        console.log("User Not Authorized");
-      }
+    readProducts({ commit }) {
+      API.fetchProducts()
+        .then((products) => {
+          commit("setProducts", products);
+        })
+        .catch(console.log);
     },
+    // checkAuth({ commit }) {
+    //   if (sessionStorage.getItem("meetup")) {
+    //     const persistedData = JSON.parse(sessionStorage.getItem("meetup"));
+    //     commit("auth", persistedData);
+    //     console.log("User Authorized");
+    //   } else {
+    //     commit("logout");
+    //     console.log("User Not Authorized");
+    //   }
+    // },
 
     register({ commit }, newUser) {
       API.register(newUser)
         .then((user) => {
-          commit("auth", user);
+          commit("Auth", user);
           commit("login");
         })
         .catch(console.log);
@@ -117,6 +138,13 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       commit("logout");
+    },
+    createProduct({ commit }, newProduct) {
+      API.createProduct(newProduct)
+        .then((product) => {
+          commit("addProduct", product);
+        })
+        .catch(console.log);
     },
   },
   getters: {

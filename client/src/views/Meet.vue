@@ -24,18 +24,38 @@
           </div>
         </li>
       </ul>
+      <h2>Created events</h2>
+      <CreatedEvents
+        v-for="product in products"
+        :key="product.id"
+        :item="product"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import CreatedEvents from "@/components/CreatedEvents.vue";
 export default {
   name: "Meet",
+  components: {
+    CreatedEvents,
+  },
+  computed: {
+    products() {
+      return this.$store.state.productItems;
+    },
+  },
+
   async created() {
     const RESPONSE = await axios.get("/api/meets");
     this.items = RESPONSE.data;
   },
+  beforeMount() {
+    return this.$store.dispatch("readProducts");
+  },
+
   data() {
     return {
       items: {},

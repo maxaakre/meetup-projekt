@@ -3,7 +3,7 @@ const users = new Datastore({
   filename: "./db/myddata.db",
   autoload: true,
 });
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -15,13 +15,13 @@ module.exports = {
       if (user) {
         return false;
       } else {
-        const passwordHash = await bcrypt.hash(body.password, 10);
         const newUser = {
           email: body.email,
-          password: passwordHash,
+          password: body.password,
           role: "customer",
           name: body.name,
         };
+        console.log("user.js register ", newUser);
         return await users.insert(newUser);
       }
     } else {
@@ -48,8 +48,6 @@ module.exports = {
             email: user.email,
             name: user.name,
             role: user.role,
-
-            orderHistory: user.orderHistory,
           },
         };
       } else {
@@ -57,10 +55,4 @@ module.exports = {
       }
     }
   },
-  //   async addUserPayment(userID,payment){
-  //     await users.update({_id:userID}, {$set: {payment:payment}})
-  //   },
-  //   async addOrdertoUser(userID,orderID){
-  //     await users.update({_id:userID},{$push: {orderHistory:orderID}})
-  //   }
 };

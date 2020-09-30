@@ -9,10 +9,7 @@ module.exports = {
   async getAll() {
     return await meet.find({});
   },
-  //GET ONE PRODUCT
-  async get(productID) {
-    return await meet.findOne({ _id: productID });
-  },
+
   //CREATE NEW PRODUCT
   async create(body) {
     const newEvent = {

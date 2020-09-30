@@ -11,7 +11,8 @@ router.get("/products", async (req, res) => {
 
 //CREATE NEW PRODUCT
 router.post("/event", async (req, res) => {
-  if (req.user.role === "customer") {
+  if (req.body) {
+    console.log(req.body);
     const products = await Newevent.create(req.body);
     res.status(201).json(products);
   } else {

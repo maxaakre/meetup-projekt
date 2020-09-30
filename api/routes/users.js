@@ -5,8 +5,9 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 //REGISTER NEW USER
-router.post("/users", async (req, res) => {
+router.post("/register", async (req, res) => {
   const user = await User.register(req.body);
+  console.log("user doubble", user);
   if (user) {
     res.status(201).json(user);
   } else {

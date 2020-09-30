@@ -154,6 +154,9 @@ export default {
     .if {
       padding: 2.5rem;
     }
+    img {
+      width: 200px;
+    }
   }
   .reviews {
     form {

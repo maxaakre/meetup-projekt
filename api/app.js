@@ -6,12 +6,15 @@ const path = require("path");
 
 const meetRouter = require("./routes/meets");
 const userRoutes = require("./routes/users");
+const eventRoutes = require("./routes/event");
 
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/users", userRoutes);
+app.use("/api", userRoutes);
 app.use("/api/meets", meetRouter);
+app.use("/api", eventRoutes);
+
 app.use(express.static(path.join(__dirname, "/public")));
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public", "index.html"))

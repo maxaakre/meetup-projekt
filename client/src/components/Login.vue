@@ -9,9 +9,9 @@
       @submit.prevent="login"
     >
       <div class="message">
+        <p class="error-message">{{ error }}</p>
         <h3>{{ message }}</h3>
       </div>
-      <p class="error-message">{{ error }}</p>
       <label for="email">
         Email
         <input
@@ -30,17 +30,13 @@
           autocomplete="off"
         />
       </label>
-      <button class="btn large" @click="login">Login</button>
-      <router-link to="signup" @click="showModal = !showModal"
-        >Signup</router-link
-      >
+      <button class="btn large">Login</button>
+      <router-link to="/signup">Signup</router-link>
     </form>
     <section v-if="showModal && auth.loggedIn" class="login-modal">
-      <p>{{ auth.user.name }}</p>
+      <!-- <p>{{ auth.user.name }}</p> -->
       <a href="#" type="submit" class="btn large" @click="logout">Logout</a>
-      <router-link class="btn" v-if="auth.loggedIn" to="/newevent">
-        New event
-      </router-link>
+      <router-link class="btn" to="/newevent"> New event </router-link>
     </section>
   </aside>
 </template>
@@ -51,13 +47,13 @@ export default {
   name: "Login",
   data() {
     return {
+      error: "Fill in input fielde's",
       message: "Login",
       showModal: false,
       credentials: {
         email: "",
         password: "",
       },
-      error: "Fill in input fielde's",
     };
   },
   computed: {
@@ -69,7 +65,6 @@ export default {
     toggleLogin() {
       this.showModal = false;
     },
-
     closeLogin() {
       this.showModal = false;
     },
@@ -85,6 +80,7 @@ export default {
     },
     logout() {
       this.$store.dispatch("logout");
+      this.showModal = false;
     },
     close() {
       this.showModal = false;
@@ -188,3 +184,4 @@ export default {
   }
 }
 </style>
+}

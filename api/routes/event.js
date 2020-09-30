@@ -18,7 +18,7 @@ router.get("/products", async (req, res) => {
 //   }
 // });
 //CREATE NEW PRODUCT
-router.post("/event", auth.auth, async (req, res) => {
+router.post("/event", async (req, res) => {
   if (req.user.role === "customer") {
     const products = await Newevent.create(req.body);
     res.status(201).json(products);

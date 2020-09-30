@@ -29,7 +29,7 @@ export const fetchProducts = async () => {
   return response.data;
 };
 export const createProduct = async (newProduct) => {
-  console.log("POST /api/event", " - Payload: ", newProduct);
+  console.log("POST /event", " - Payload: ", newProduct);
   const response = await api.post("/event", newProduct);
   // console.log("Response: ", response);
   return response.data.product;

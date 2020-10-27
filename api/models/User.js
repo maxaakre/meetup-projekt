@@ -3,7 +3,7 @@ const users = new Datastore({
   filename: "./db/myddata.db",
   autoload: true,
 });
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -15,6 +15,7 @@ module.exports = {
       if (user) {
         return false;
       } else {
+        const passwordHash = await bcrypt.hash(body.password, 10);
         const newUser = {
           email: body.email,
           password: body.password,
@@ -34,7 +35,8 @@ module.exports = {
     if (!user) {
       return false;
     } else {
-      if (user) {
+      const passwordMatch = await bcrypt.compare(body.password, user.password);
+      if (passwordMatch) {
         const secret = process.env.SECRET;
         const payload = {
           userID: user._id,

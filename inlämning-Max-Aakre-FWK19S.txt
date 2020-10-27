@@ -1,0 +1,24 @@
+1. Länkar till Git:
+    https://github.com/maxaakre/meetup-projekt
+
+
+2. Jag använde mig av molntjänsten heroku:
+3.    https://maxmeetup.herokuapp.com/
+
+4. Jag använde mig av Levelups:
+    API/databas
+    Systemtester 
+    Acceptanstester 
+    Planera event
+
+5. Kursen viktigaste del har varit tester vilket har varit mycket nyttigt när
+   vi kommer till att kolla om våra komponenter fungerar.
+   Jag har lärt mig mycket när det gäller tester. Det var inget jag hade gjort
+   tidigare.
+   Docker var sjukt roligt att få använda det är något jag väntat på att få lära mig
+   Det kommer vi ju använda till vardags i vårat arbetsliv så det var nyttigt att
+   lära sig.
+
+
+
+
